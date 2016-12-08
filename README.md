@@ -1,3 +1,3 @@
 # Objectiv CLI
 
-https://travis-ci.org/Objectivco/objectiv-cli.svg?branch=master
+![Travis Build Badge](https://travis-ci.org/Objectivco/objectiv-cli.svg?branch=master)
