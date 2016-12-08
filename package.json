@@ -1,0 +1,36 @@
+{
+  "name": "objectiv-cli",
+  "version": "0.0.1",
+  "description": "CLI for interacting with the Objectiv starter theme",
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "mocha ./test/test.js",
+    "build": "rimraf lib && babel src -d lib"
+  },
+  "keywords": [
+    "objectiv",
+    "wordpress",
+    "timber",
+    "twig"
+  ],
+  "author": "Objectiv (http://objectiv.co)",
+  "license": "ISC",
+  "bin": {
+    "objectiv": "./lib/index.js"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "cli": "^0.11.1",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "mocha": "^3.2.0"
+  }
+}
