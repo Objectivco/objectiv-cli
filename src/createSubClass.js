@@ -1,12 +1,10 @@
 import fs from 'fs';
 import mkdirp from 'mkdirp';
 
-const createSubClass = args => {
-    const type = args[0];
-    const name = args[1];
+const createSubClass = (className, name) => {
 
     mkdirp.sync('./lib/');
-    fs.writeFileSync('./lib/' + type + '-' + name + '.php');
+    fs.writeFileSync('./lib/' + className + '-' + name + '.php');
 
     console.log('subClass created');
 }

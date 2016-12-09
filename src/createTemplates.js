@@ -4,8 +4,7 @@ import chalk from 'chalk';
 
 const log = console.log;
 
-const createTemplates = args => {
-    const name = args[0];
+const createTemplates = name => {
 
     // Create the php template file
     fs.writeFileSync(name + '.php', buildPHPTemplate(name));

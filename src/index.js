@@ -1,45 +1,41 @@
 #!/usr/bin/env node
 
-import cli from 'cli';
-import fs from 'fs';
-import mkdirp from 'mkdirp';
 import chalk from 'chalk';
+import clear from 'clear';
+import figlet from 'figlet';
+import commander from 'commander';
+import inquirer from 'inquirer';
 
-import createComponents from './createComponents.js';
-import createTemplates from './createTemplates.js';
-import createSubClass from './createSubClass.js';
+import createTemplates from './createTemplates.js'
+import createComponents from './createComponents.js'
+import createSubClass from './createSubClass.js'
 
-cli.parse({
-    component: ['c', 'Create a component'],
-    template: ['t', 'Create a Template'],
-    subClass: ['s', 'Create a SubClass'],
-    help: ['h', 'Help']
-});
+commander
+    .command('add <type> [name]')
+    .action(function(type, name) {
+        console.log(
+            chalk.red(
+                figlet.textSync('Objectiv', {horizontalLayout: 'default'})
+            )
+        );
 
-cli.main(function(args, options) {
-    console.log('args: ', args);
-    console.log('options: ', options);
+        if (type === 'template') {
+            createTemplates(name);
+        } else if (type === 'component') {
+            createComponents(name);
+        }
+    });
 
-    const { component, template, subClass, help } = options;
+commander
+    .command('extend <className> [name]')
+    .action(function(className, name) {
+        console.log(
+            chalk.red(
+                figlet.textSync('Objectiv', {horizontalLayout: 'default'})
+            )
+        );
 
-    if (component) {
-        createComponents(args);
-    }
+        createSubClass(className, name);
+    });
 
-    if (template) {
-        createTemplates(args);
-    }
-
-    if (subClass) {
-        createSubClass(args);
-    }
-
-    if (help) {
-        help();
-    }
-});
-
-function help() {
-    console.log('Help');
-    return false;
-}
+commander.parse(process.argv);

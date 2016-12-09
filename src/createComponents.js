@@ -4,8 +4,7 @@ import chalk from 'chalk';
 
 const log = console.log;
 
-const createComponents = args => {
-    const name = args[0];
+const createComponents = name => {
 
     // create the partial file
     mkdirp.sync('./partials/');

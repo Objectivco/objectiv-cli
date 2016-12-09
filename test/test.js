@@ -9,6 +9,12 @@ function cleanUp(dir) {
     rimraf.sync('./' + dir);
 }
 
+describe('downloadTheme', function() {
+    it ('should download the repo from Github', function(done) {
+        
+    });
+});
+
 describe('createComponents', function() {
     it ('should create a PHP file, Twig template, and Sass file', function(done) {
         var args = ['test'];
